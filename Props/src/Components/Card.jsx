@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Card = ({city, unique}) => {
+
+const Card = ({city, unique,image, msg}) => {
+  const [click, setClick] = useState(false)
+  
+
+  const change =()=>{
+    setClick(alert(msg))
+   
+  }
+
   return (
-    <div className='flex items-center justify-center  '>
+    
+    <div className='flex flex-wrap items-center justify-center  '>
       <div className="w-80 mt-8 h-120  rounded-md shadow-md bg-black text-gray-100">
         <img
-          src="https://picsum.photos/301"
+          src={image}
           alt=""
           className="object-cover object-center w-full rounded-t-md h-60 bg-gray-500"
         />
@@ -17,13 +27,14 @@ const Card = ({city, unique}) => {
               
             </p>
           </div>
-          <button
-            type="button"
-            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-gray-800 text-gray-200"
+          <button  
+            type="button" onClick={change}
+            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide cursor-pointer rounded-md bg-gray-800 text-gray-200"
           >
             Read more
           </button>
         </div>
+       
       </div>
     </div>
   )
